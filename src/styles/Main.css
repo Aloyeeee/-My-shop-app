@@ -1,0 +1,50 @@
+.filter-panel {
+   display: flex;
+   justify-content: center;
+   gap: 1rem;
+   margin: 2rem 0 1rem;
+ }
+ 
+ .filter-btn {
+   padding: 0.5rem 1.5rem;
+   border: 2px solid var(--primary-color, #3498db);
+   background: white;
+   color: var(--primary-color, #3498db);
+   border-radius: 20px;
+   cursor: pointer;
+   font-weight: bold;
+   transition: all 0.3s;
+ }
+ 
+ .filter-btn.active {
+   background: var(--primary-color, #3498db);
+   color: white;
+ }
+ 
+ .empty-message {
+   text-align: center;
+   padding: 3rem;
+   background-color: #f8f9fa;
+   border-radius: 8px;
+   color: #7f8c8d;
+   font-size: 1.2rem;
+   grid-column: 1 / -1; 
+ }
+
+.shop-layout {
+   display: flex;
+   gap: 2rem;
+   align-items: flex-start; 
+   margin-top: 2rem;
+ }
+ 
+ .main-catalog {
+   flex: 3; 
+ }
+ 
+ .sidebar-recommendations {
+   flex: 1;
+   min-width: 300px;
+   position: sticky;
+   top: 20px;
+ }

@@ -1,0 +1,41 @@
+/* src/components/Header.css */
+.app-header {
+   background-color: var(--primary-color);
+   color: white;
+   padding: 1rem 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+ }
+ 
+ .logo h1 {
+   font-size: 1.8rem;
+ }
+ 
+ .main-nav ul {
+   display: flex;
+   list-style: none;
+   gap: 1.5rem;
+ }
+ 
+ .main-nav a {
+   color: white;
+   text-decoration: none;
+   font-weight: 500;
+   transition: opacity 0.3s;
+ }
+ 
+ .main-nav a:hover {
+   opacity: 0.8;
+   text-decoration: underline;
+ }
+
+ /* Додайте до існуючого коду */
+.cart-badge {
+  background-color: #f1c40f;
+  color: #333;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+}

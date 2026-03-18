@@ -1,0 +1,142 @@
+.recommended-section {
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.recommended-section h2 {
+  font-size: 1.3rem;
+  color: #e74c3c;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.api-status {
+  padding: 1rem;
+  font-weight: bold;
+}
+.loader { color: #3498db; }
+.error-message { color: #e74c3c; }
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.slider-window {
+  width: 100%;
+  overflow: hidden; 
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.slider-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out; 
+}
+
+.slider-card {
+  min-width: 100%; 
+  box-sizing: border-box;
+  padding-bottom: 1.5rem;
+}
+
+.slider-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.slider-info h4 {
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem;
+  color: #2c3e50;
+  padding: 0 1rem;
+  height: 2.8rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #27ae60;
+  margin: 0.5rem 0;
+}
+
+.slider-brand {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+  background: #34495e;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+.nav-btn {
+  background: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-btn:hover {
+  background: #3498db;
+  color: white;
+  transform: scale(1.1);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 150px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #bdc3c7;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background-color: #e74c3c;
+  transform: scale(1.4);
+}
