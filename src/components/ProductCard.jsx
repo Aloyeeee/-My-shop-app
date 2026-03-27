@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import '../styles/ProductCard.css';
 
 const ProductCard = ({ id, name, price, category, image, inCart, toggleCart, removeProduct }) => {
   return (
     <div className={`product-card ${inCart ? 'selected' : ''}`}>
       
-      {/* Кнопка видалення (хрестик у кутку) */}
+      {}
       <button className="delete-btn" onClick={() => removeProduct(id)}>×</button>
 
       <img src={image} alt={name} className="product-image" />
@@ -13,6 +14,13 @@ const ProductCard = ({ id, name, price, category, image, inCart, toggleCart, rem
         <h3>{name}</h3>
         <p className="category">Категорія: {category}</p>
         <p className="price">{price} грн</p>
+        {}
+        <Link 
+          to={`/product/${id}`} 
+          style={{ display: 'block', margin: '0.5rem 0', color: '#3498db', textDecoration: 'none', fontWeight: 'bold' }}
+        >
+          Детальніше →
+        </Link>
         
         <button 
           className={`buy-button ${inCart ? 'in-cart-btn' : ''}`}

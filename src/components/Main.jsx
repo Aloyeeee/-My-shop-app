@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import ProductList from './ProductList';
 import AddProductForm from './AddProductForm';
-import RecommendedProducts from './RecommendedProducts';
 import '../styles/Main.css';
 
-const Main = ({ products, toggleCart, currentFilter, setFilter, addProduct, removeProduct }) => {
+const Main = ({ products = [], toggleCart, currentFilter, setFilter, addProduct, removeProduct }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -24,25 +23,21 @@ const Main = ({ products, toggleCart, currentFilter, setFilter, addProduct, remo
       )}
 
       <div className="filter-panel">
-        <button className={currentFilter === 'all' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('all')}>
+        <button 
+          className={currentFilter === 'all' ? 'filter-btn active' : 'filter-btn'}
+          onClick={() => setFilter('all')}
+        >
           Всі товари
         </button>
-        <button className={currentFilter === 'inCart' ? 'filter-btn active' : 'filter-btn'} onClick={() => setFilter('inCart')}>
+        <button 
+          className={currentFilter === 'inCart' ? 'filter-btn active' : 'filter-btn'}
+          onClick={() => setFilter('inCart')}
+        >
           Тільки в кошику
         </button>
       </div>
 
-      {/* НОВА СТРУКТУРА: Контейнер для двох колонок */}
-      <div className="shop-layout">
-        <div className="main-catalog">
-          <ProductList items={products} toggleCart={toggleCart} removeProduct={removeProduct} />
-        </div>
-        
-        <aside className="sidebar-recommendations">
-          <RecommendedProducts />
-        </aside>
-      </div>
-
+      <ProductList items={products} toggleCart={toggleCart} removeProduct={removeProduct} />
     </main>
   );
 };
