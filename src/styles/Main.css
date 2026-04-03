@@ -1,50 +1,73 @@
-.filter-panel {
-   display: flex;
-   justify-content: center;
-   gap: 1rem;
-   margin: 2rem 0 1rem;
- }
- 
- .filter-btn {
-   padding: 0.5rem 1.5rem;
-   border: 2px solid var(--primary-color, #3498db);
-   background: white;
-   color: var(--primary-color, #3498db);
-   border-radius: 20px;
-   cursor: pointer;
-   font-weight: bold;
-   transition: all 0.3s;
- }
- 
- .filter-btn.active {
-   background: var(--primary-color, #3498db);
-   color: white;
- }
- 
- .empty-message {
-   text-align: center;
-   padding: 3rem;
-   background-color: #f8f9fa;
-   border-radius: 8px;
-   color: #7f8c8d;
-   font-size: 1.2rem;
-   grid-column: 1 / -1; 
- }
+/* Основний контейнер */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) 0;
+}
 
-.shop-layout {
-   display: flex;
-   gap: 2rem;
-   align-items: flex-start; 
-   margin-top: 2rem;
- }
- 
- .main-catalog {
-   flex: 3; 
- }
- 
- .sidebar-recommendations {
-   flex: 1;
-   min-width: 300px;
-   position: sticky;
-   top: 20px;
- }
+/* Верхня панель з кнопками (фільтри та додавання) */
+.controls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-panel {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* СІТКА КАРТОК (Ось що робить каталог рівним!) */
+.product-list {
+  display: grid;
+  /* Картки будуть мінімум 280px шириною і самі заповнюватимуть рядок */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+  align-items: stretch; /* Усі картки в рядку будуть однакової висоти */
+}
+
+/* Стилі для модального вікна затемнення */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Розмиття фону */
+}
+
+.modal-content {
+  background: var(--color-bg);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 450px;
+  box-shadow: var(--shadow-md);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивність для мобільних телефонів */
+@media (max-width: 600px) {
+  .controls-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-panel {
+    justify-content: space-between;
+  }
+}

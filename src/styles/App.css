@@ -19,9 +19,11 @@
 
 /* Застосовуємо до body з плавним переходом */
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family); /* ОСЬ ЦЕЙ РЯДОК РОБИТЬ ШРИФТ КРАСИВИМ */
+  transition: all var(--transition);
+  margin: 0;
 }
 
 /* Кнопки перемикання в шапці */

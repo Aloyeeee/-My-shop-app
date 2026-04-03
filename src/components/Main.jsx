@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ProductList from './ProductList';
 import AddProductForm from './AddProductForm';
 import { useSettings } from '../context/SettingsContext';
+import { Button } from './ui'; // Підключаємо нашу кнопку з UI Kit
 import '../styles/Main.css';
 
 const Main = ({ products = [], toggleCart, currentFilter, setFilter, addProduct, removeProduct }) => {
@@ -10,12 +11,29 @@ const Main = ({ products = [], toggleCart, currentFilter, setFilter, addProduct,
 
   return (
     <main className="main-content">
-      <div className="add-action-panel">
-        <button className="open-modal-btn" onClick={() => setIsModalOpen(true)}>
+      {/* Панель керування: кнопка додавання + фільтри */}
+      <div className="controls-header">
+        <Button variant="primary" onClick={() => setIsModalOpen(true)}>
           {language === 'ua' ? '+ Додати товар' : '+ Add Product'}
-        </button>
+        </Button>
+
+        <div className="filter-panel">
+          <Button 
+            variant={currentFilter === 'all' ? 'primary' : 'secondary'}
+            onClick={() => setFilter('all')}
+          >
+            {language === 'ua' ? 'Всі товари' : 'All Products'}
+          </Button>
+          <Button 
+            variant={currentFilter === 'inCart' ? 'primary' : 'secondary'}
+            onClick={() => setFilter('inCart')}
+          >
+            {language === 'ua' ? 'Тільки в кошику' : 'In Cart Only'}
+          </Button>
+        </div>
       </div>
 
+      {/* Модальне вікно */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -24,21 +42,7 @@ const Main = ({ products = [], toggleCart, currentFilter, setFilter, addProduct,
         </div>
       )}
 
-      <div className="filter-panel">
-        <button 
-          className={currentFilter === 'all' ? 'filter-btn active' : 'filter-btn'}
-          onClick={() => setFilter('all')}
-        >
-          {language === 'ua' ? 'Всі товари' : 'All Products'}
-        </button>
-        <button 
-          className={currentFilter === 'inCart' ? 'filter-btn active' : 'filter-btn'}
-          onClick={() => setFilter('inCart')}
-        >
-          {language === 'ua' ? 'Тільки в кошику' : 'In Cart Only'}
-        </button>
-      </div>
-
+      {/* Список товарів */}
       <ProductList items={products} toggleCart={toggleCart} removeProduct={removeProduct} />
     </main>
   );
